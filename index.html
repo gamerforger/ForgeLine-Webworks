@@ -4,10 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ForgeLine Webworks</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <style>
+    /* ---------- BASIC STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0b0b;
+      color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      background: #111;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #fff;
+    }
+    .logo span {
+      color: #ff6a00;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff6a00;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.6em;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #ccc;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+    }
+
+    .btn {
+      background: #ff6a00;
+      color: #fff;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #ff8800;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      color: #ff6a00;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 106, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05em;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #222;
+      color: #fff;
+      resize: none;
+      font-size: 1em;
+    }
+
+    .contact textarea {
+      height: 120px;
+    }
+
+    #formMessage {
+      margin-top: 10px;
+      font-weight: 500;
+      color: #00d084;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
+  <!-- ---------- NAVBAR ---------- -->
   <header>
     <nav class="navbar">
       <h1 class="logo">ForgeLine <span>Webworks</span></h1>
@@ -20,14 +191,16 @@
     </nav>
   </header>
 
+  <!-- ---------- HERO SECTION ---------- -->
   <section id="home" class="hero">
     <div class="hero-content">
-      <h2>Forging custom websites <br> that you help design.</h2>
+      <h2>Forging custom websites<br>that you help design.</h2>
       <p>At ForgeLine Webworks, your vision fuels our code — crafted together, built to last.</p>
       <a href="#contact" class="btn">Start Your Project</a>
     </div>
   </section>
 
+  <!-- ---------- SERVICES ---------- -->
   <section id="services" class="section">
     <h2>Our Services</h2>
     <div class="services-grid">
@@ -46,7 +219,58 @@
     </div>
   </section>
 
+  <!-- ---------- ABOUT ---------- -->
   <section id="about" class="section about">
     <h2>About ForgeLine</h2>
     <p>
-      ForgeLine Webworks is a collaborative design studio that blends creativity and code.  
+      ForgeLine Webworks is a collaborative web design studio that blends creativity with code.  
+      Every site we build is custom-crafted, letting you guide the design process while we handle the tech.  
+      We don’t just build websites — we forge lasting digital experiences.
+    </p>
+  </section>
+
+  <!-- ---------- CONTACT ---------- -->
+  <section id="contact" class="section contact">
+    <h2>Get in Touch</h2>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 ForgeLine Webworks | Built with 💻 & creativity</p>
+  </footer>
+
+  <script>
+    // Handle Formspree responses gracefully
+    const form = document.getElementById("contactForm");
+    const message = document.getElementById("formMessage");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      message.textContent = "Sending message...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          message.textContent = "✅ Thanks for reaching out! We'll get back to you soon.";
+          form.reset();
+        } else {
+          message.textContent = "⚠️ Oops, something went wrong. Please try again later.";
+        }
+      } catch (error) {
+        message.textContent = "⚠️ Network error. Please check your connection.";
+      }
+    });
+  </script>
+</body>
+</html>
